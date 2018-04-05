@@ -7,7 +7,6 @@ The ```build.sh``` file can be used to install Jenkins running on Centos7; withi
 The Jenkins URL is ```http://<host-ip-address>:8080```
 
 Run this command to get the initial admin password for Jenkins login:
-
 ```cat /var/lib/jenkins/secrets/initialAdminPassword```
 
 Post installation of Jenkins, manually install the recommended plugins and the Blue Ocean plugin
