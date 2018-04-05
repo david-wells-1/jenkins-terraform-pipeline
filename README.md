@@ -2,11 +2,11 @@
 
 ### Setup ###
 
-The ```build.sh``` file can be used to install Jenkins running on Centos7; within a Development environment. Docker is installed as the pipeline uses runs terraform in a Docker container
+The ```build.sh``` file can be used to install Jenkins running on Centos7; within a Development environment. Docker is installed as the pipeline will run terraform in a Docker container
 
 The Jenkins URL is ```http://<host-ip-address>:8080```
 
-The initial admin password to login to Jenkins can be found at: ```/var/lib/jenkins/secrets/initialAdminPassword```
+Run this command to git the initial admin password to login to Jenkins: ```cat /var/lib/jenkins/secrets/initialAdminPassword```
 
 Post installation of Jenkins, manually install the recommended plugins and the Blue Ocean plugin
 
@@ -21,3 +21,4 @@ More information is available here: https://github.com/hashicorp/docker-hub-imag
 Use the ```Jenkinsfile``` to create the pipeline
 
 As an example, the ```example.tf``` will create a security group in the default VPC in eu-west-2
+
