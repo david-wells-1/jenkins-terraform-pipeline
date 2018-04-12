@@ -1,6 +1,6 @@
 pipeline {
   options {
-    ansiColor('xterm')
+      ansiColor('xterm')
     }   
   agent {
     node {
@@ -29,7 +29,7 @@ pipeline {
         timeout(time: 1, unit: 'HOURS') 
       }
       steps {
-        input 'approve the plan to proceed and apply'      
+        input 'approve the plan to proceed and apply'
       }
     }
     stage('apply') {
