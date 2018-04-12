@@ -1,4 +1,5 @@
 pipeline {
+  ansiColor('xterm')
   agent {
     node {
       label 'master'
