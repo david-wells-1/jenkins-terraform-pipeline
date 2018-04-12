@@ -10,7 +10,10 @@ Run this command to get the initial admin password for Jenkins login:
 
 ```cat /var/lib/jenkins/secrets/initialAdminPassword```
 
-Post installation of Jenkins, manually install the recommended plugins and the Blue Ocean plugin
+Post installation of Jenkins, manually install:
+1. The recommended plugins
+2. The Blue Ocean plugin
+3. The AnsiColor Plugin
 
 ### Docker ###
 
