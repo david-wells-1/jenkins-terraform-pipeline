@@ -1,11 +1,11 @@
 pipeline {
-  agent {
-    node {
-      label 'master'
-    }
   options {
     ansiColor('xterm')
     }   
+  agent {
+    node {
+      label 'master'
+    }  
   }
   stages {
     stage('checkout') {
