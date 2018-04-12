@@ -7,6 +7,8 @@ yum -y install epel-release
 yum -y install python-pip
 pip install --upgrade pip
 pip install awscli --upgrade --user
+echo "PATH=~/.local/bin:$PATH" >> ~/.bash_profile
+. ~/.bash_profile
 
 # install docker
 yum -y install yum-utils device-mapper-persistent-data lvm2
