@@ -1,8 +1,11 @@
 pipeline {
+  options {
+    ansiColor('xterm')
+    }   
   agent {
     node {
       label 'master'
-    }
+    }  
   }
   stages {
     stage('checkout') {
@@ -31,9 +34,7 @@ pipeline {
     }
     stage('apply') {
       steps {
-        wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'xterm']) {
         sh 'docker run -w /app -v /root/.aws:/root/.aws -v `pwd`:/app hashicorp/terraform:light apply -auto-approve'
-        }  
         cleanWs()
       }
     }
