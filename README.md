@@ -2,28 +2,28 @@
 
 ### Setup ###
 
-The ```build.sh``` file can be used to install Jenkins running on Centos7; within a Development environment. Docker is installed as the pipeline will run terraform in a Docker container
+This is a lab to demonstrate using a Jenkinfile pipeline which will use docker and terraform to create resources in AWS
 
-The Jenkins URL is ```http://<host-ip-address>:8080```
+The ```build.sh``` file can be used to install Jenkins running on Centos7.
 
-Run this command to get the initial admin password for Jenkins login:
+Docker is installed as the Jenkinsfile pipeline will run terraform in a Docker container
+
+The Jenkins URL is http://127.0.0.1:8080
+
+To get the Jenkins initial admin password, run this command:
 
 ```cat /var/lib/jenkins/secrets/initialAdminPassword```
 
-Post installation of Jenkins, manually install:
-1. The recommended plugins
-2. The Blue Ocean plugin
-3. The AnsiColor Plugin
+After initializing Jenkins; install the recommended plugs and (optionally) the Blue Ocean plugin https://plugins.jenkins.io/blueocean
 
 ### Docker ###
 
-IAM user AWS credentials should be saved on the host instance - these are mapped to and used by the Docker container when running the pipeline; the permissons for the IAM user will need to be sufficient to complete all tasks/create all resources required by the pipeline
+IAM user AWS credentials should be saved on the host instance at `/root/.aws/` - these are mapped to and used by the Docker container when running the pipeline. Ensure the permissons for the IAM user are sufficient to complete all tasks/create all resources required by the pipeline
 
-More information is available here: https://github.com/hashicorp/docker-hub-images/tree/master/terraform
+More information is available here: https://hub.docker.com/r/hashicorp/terraform
 
 ### Pipeline ###
 
-Use the ```Jenkinsfile``` to create the pipeline
+Create a pipeline job, then within the **Pipeline** configuration set the definition to `Pipeline script from SCM`. Add your repository URL, the `Script Path` will automatically be set to Jenkinsfile.
 
-As an example, the ```example.tf``` will create a security group in the default VPC in eu-west-2
-
+In this example, the Jenkinsfile pipeline will create a security group in the default VPC in eu-west-2

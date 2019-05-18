@@ -1,7 +1,4 @@
-pipeline {
-  options {
-      ansiColor('xterm')
-    }   
+pipeline {   
   agent {
     node {
       label 'master'

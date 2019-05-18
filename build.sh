@@ -1,17 +1,8 @@
 #!/bin/sh
-
 yum -y update
-yum -y install epel-release
-
-# install aws cli
-yum -y install python-pip
-pip install --upgrade pip
-pip install awscli --upgrade --user
-echo "PATH=~/.local/bin:$PATH" >> ~/.bash_profile
-. ~/.bash_profile
 
 # install docker
-yum -y install yum-utils device-mapper-persistent-data lvm2
+yum -y install yum-utils device-mapper-persistent-data lvm2 epel-release
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum -y install docker-ce
 systemctl start docker
@@ -35,3 +26,12 @@ systemctl start firewalld
 systemctl enable firewalld
 firewall-cmd --zone=public --permanent --add-port=8080/tcp
 firewall-cmd --reload
+
+# install aws cli
+yum -y install python-pip
+pip install --upgrade pip
+pip install awscli --upgrade --user
+echo "PATH=~/.local/bin:$PATH" >> ~/.bash_profile
+
+# reboot
+systemctl reboot
